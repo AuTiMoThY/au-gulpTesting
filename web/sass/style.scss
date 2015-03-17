@@ -1,0 +1,287 @@
+@charset "UTF-8";
+
+/******************************************/
+/*          1111shop
+/*          by AuTiMoThY
+/******************************************/
+/*
+* TOC
+* 
+* materialBtn
+* footer
+* nav aside
+* header
+*/
+
+@import "_variable";
+@import "_mixin";
+@import "_font.scss";
+@import "compass";
+@import "ceaser-easing";
+
+// @include font-face("expressway", font-files("expressway rg.ttf", "expressway rg.woff"));
+
+// @import _animate.sass
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+        
+\*------------------------------------------------------------------------*/
+.hide_txt {
+    @include hide_txt;
+}
+
+.wrapper {
+    @include wh($cnt_width, 100%);
+    margin: 0 auto;
+    position: relative;
+}
+.well {
+    width: $cnt_width;
+    margin: auto;
+    position: relative;
+}
+
+html, body {
+    min-height: 100%;
+}
+
+body {
+    @include bg('bg1_mini.jpg', 50%, 50%);
+    @include background-size(cover);
+    // @include bg(scroll);
+    font-family: $normal_font;
+}
+
+[class*="row_"] {
+    width: 100%;
+}
+
+[class*="col_"] {
+    width: 49%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.pic {
+    img {
+        @include picImg;
+    }
+}
+
+.swing {
+    -webkit-transform-origin: 50% 80%;
+    -ms-transform-origin: 50% 80%;
+    transform-origin: 50% 80%;
+}
+
+.temporary {
+    display: block;
+    margin: 0 auto;
+}
+
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+    >   materialBtn
+\*------------------------------------------------------------------------*/
+.btn {
+  position: relative;
+  // padding: 8px 30px;
+  border: 0;
+  // margin: 10px 1px;
+  cursor: pointer;
+  border-radius: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.84);
+  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none !important;
+}
+@import "_materialBtn";
+
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+    >   footer
+\*------------------------------------------------------------------------*/
+footer {
+    @include wh(100%, 35px);
+    @include bg(rgba(215, 0, 15, 0.8));
+    position: fixed;
+    bottom: 0;
+    p {
+    	color: #fff;
+    	font-size: $fz-N;
+        line-height: 35px;
+        text-align: center;
+    }
+}
+
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+    >   nav aside
+\*------------------------------------------------------------------------*/
+.nav_aside {
+    width: 12%;
+    min-width: 170px;
+    max-width: 260px;
+    @include bg(#02489e);
+    ul {
+        @include wh();
+    }
+    li {
+        @include wh(100%, 24%);
+        float: none;
+    }
+    a {
+        @include wh;
+        display: block;
+    }
+    .block {
+        @include wh;
+        display: inline-block;
+        padding-top: 45px;
+
+    }
+    .icon {
+        @include wh(115px, 105px);
+        @include bg('icon.png');
+        display: block;
+        margin: 0 auto;
+    }
+    @each $item, $x, $y in (item1, -82px, -51px),
+                           (item2, -82px, -270px),
+                           (item3, -82px, -508px),
+                           (item4, -82px, -740px) {
+        .#{$item} .icon {
+            @include bg($x, $y);
+        }
+    }
+    .title { 
+        width: 100%;
+        display: block;
+        color: #fff;
+        font-size: $fz-L; 
+        line-height: 1.2;
+        text-align: center;
+    }
+    .btn-raised {
+        &:hover {
+            @include bg(#051e9b);
+        }
+        &.active {
+        	@include bg(#051e9b);
+        }
+    }
+}
+
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+    >   header
+\*------------------------------------------------------------------------*/
+header {
+    position: absolute;
+    top: 10%;
+    left: 28%;
+    &.index {
+	    h1 {
+			@include wh(632px, 211px);
+			@include bg('main_title.png');
+	    }
+	    article {
+	    	width: 630px;
+	    	@include bg(rgba(255, 255, 255, 0.7));
+	    	padding: 25px 60px;
+	    	color: #182a77;
+	    	line-height: 1.3;
+	    }
+	    tr {
+	    	td {
+	    		padding-bottom: 10px;
+	    	}
+	    	&>td:first-of-type {
+		    	border-right: 1px solid #0e317f;
+		    	padding-right: 20px;
+		    	// margin-right: 20px;
+		    }
+		    &>td:nth-of-type(2) {
+		    	padding-left: 20px;
+		    }
+	    }
+    }
+    &.p50off {
+    	h1 {
+    		@include wh(651px, 91px);
+    		@include bg('50off_title.png');
+    		margin-bottom: 50px;
+    	}
+    	a {
+    		&[class*="item"] {
+    			@include bg('p50off_list.png');
+    			margin-right: 34px;
+    			@include transition(all 0.3s cubic-bezier(0.4, 0, .2, 1));
+    			&:hover {
+    				@include scale(1.1);
+    			}
+    		}
+    		@each $item, $w, $h, $x, $y in (item1, 88px, 96px, 0, 0),
+    									   (item2, 100px, 96px, -139px, 0),
+    									   (item3, 200px, 96px, -285px, 0),
+    									   (item4, 124px, 96px, -517px, 0),
+    									   (item5, 175px, 96px, 0px, -96px),
+    									   (item6, 151px, 96px, -212px, -96px),
+    									   (item7, 176px, 96px, -394px, -96px) {
+    			&.#{$item} {
+    				@include wh($w, $h);
+    				@include bg($x, $y);
+    			}
+    		}
+    	}
+    	article {
+    		width: 650px;
+    		li {
+    			margin-bottom: 10px;
+    		}
+    	}
+    }
+    &.p80off {
+    	h1 {
+    		@include wh(654px, 91px);
+    		@include bg('80off_title.png');
+    		margin-bottom: 50px;
+    	}
+    	a {
+    		&[class*="item"] {
+    			@include bg('p80off_list.png');
+    			margin-right: 50px;
+    			@include transition(all 0.3s cubic-bezier(0.4, 0, .2, 1));
+    			&:hover {
+    				@include scale(1.1);
+    			}
+    			&:first-of-type {
+    				margin-left: 30px;
+    			}
+    		}
+    		@each $item, $w, $h, $x, $y in (item1, 100px, 89px, 0, 0),
+    									   (item2, 100px, 89px, -144px, 0),
+    									   (item3, 206px, 89px, -287px, 0){
+    			&.#{$item} {
+    				@include wh($w, $h);
+    				@include bg($x, $y);
+    			}
+    		}
+    	}
+    	article {
+    		width: 650px;
+    		li {
+    			margin-bottom: 10px;
+    		}
+    	}
+    }
+}
+
+
+

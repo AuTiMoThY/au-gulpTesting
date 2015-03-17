@@ -1,0 +1,172 @@
+/*----------------------------------------*/
+/*          button
+/*----------------------------------------*/
+/*right aside*/
+.collect_btn
+	+wh(24px, 116px)
+	+bgImg('txt1.png')
+	position: relative
+	top: 100px
+	margin: 0 auto
+	cursor: pointer
+	&:hover
+		+hover(101px, 1px)
+
+.delete_btn
+	background: rgba(15, 15, 16, 0.5)
+	padding: 2px 10px
+	position: relative
+	top: -20px
+	left: 235px
+	cursor: pointer
+	+aside_txt6()
+
+.collect_submit
+	+wh(82px, 20px)
+	+bgImg('txt1.png')
+	+bg(-34px, -64px)
+	border: 0
+	margin: 0 auto
+	display: block
+
+.close_btnR
+	+wh(20px, 20px)
+	+bgImg('txt1.png')
+	+bg(-126px, -64px)
+	margin: 0 auto
+	position: relative
+	top: 21px
+	z-index: 1
+	cursor: pointer
+
+#pagesBtn
+	text-align: center
+	position: relative
+	top: 10px
+	right: -10px
+	margin-bottom: 50px
+	@media screen and (max-width: 1279px)
+		margin-top: 100px
+		right: -5px
+	ul
+		float: right
+	li
+		+wh(47px, 47px)
+		text-align: center
+		display: block
+		line-height: 47px
+		margin-right: 5px
+		// &.active>a
+		// 	color: #fff
+		&:hover, &.active
+			&>a
+				text-decoration: underline
+	a
+		display: block
+		+btn_txt
+		&[class*="_btn"]
+			+wh-bgImg(backArrow, png)
+			+bgImg('backArrow.png')
+			&:hover
+				+hover
+	.next_btn
+		+rotate(180deg)
+
+%member_btn
+	display: block
+	margin: 0 auto
+	&:hover
+		+hover
+		+box-shadow(#666 1px 1px 5px)
+%member_btns
+	width: auto
+	margin: 0 auto
+	margin-bottom: 50px
+	display: table
+	[class*="btn"]
+		@extend %member_btn
+		float: left
+.join .btns, .online .btns, .epaper_content .btns
+	@extend %member_btns
+	margin-top: 30px
+	.btn1
+		+wh(106px, 34px)
+		+bgImg('member_btn.png')
+		margin-right: 10px
+	.btn2
+		+wh(106px, 34px)
+		+bgImg('member_btn.png')
+		+bg(-120px, 0)
+	input
+		border: 0
+.online .btns
+	margin-top: 110px
+.member2 .btn3
+	+wh(106px, 72px)
+	+bgImg('member_btn.png')
+	+bg(0, -44px)
+	border: 0
+	&:hover
+		+box-shadow(#666 1px 1px 5px)
+
+.btn4
+	+wh-bgImg(backBtn, png)
+	+bgImg('backBtn.png')
+	display: block
+	position: relative
+	top: 180px
+	margin: 0 auto
+	&:hover
+		+box-shadow(#666 1px 1px 5px)
+.member_btns
+	div[class*="btn"]
+		+wh(162px, 162px)
+		+bgImg('btns.png')
+		position: absolute
+		z-index: 30
+		&:hover
+			opacity: 1
+	div.join_btn_style1
+		+bg(0, 0)
+		top: 42%
+		left: 25%
+		z-index: 31
+		@media screen and (min-width: 1024px) and (max-width: 1280px)
+			left: 20%
+	div.forget_btn_style1
+		+bg(-168px * 1, 0)
+		top: 25%
+		left: 15%
+		&:hover
+			z-index: 41
+		@media screen and (min-width: 1024px) and (max-width: 1280px)
+			left: 10%
+	div.login_btn_style1
+		+bg(-168px * 2, 0)
+		top: 60%
+		left: 15%
+		&:hover
+			z-index: 41
+		@media screen and (min-width: 1024px) and (max-width: 1280px)
+			left: 10%
+	div.join_btn_style2
+		+bg(0, 0)
+		top: 42%
+		left: 15%
+		&:hover
+			z-index: 41
+		@media screen and (min-width: 1024px) and (max-width: 1280px)
+			left: 10%
+	div.forget_btn_style2
+		+bg(-168px * 1, 0)
+		top: 25%
+		left: 25%
+		@media screen and (min-width: 1024px) and (max-width: 1280px)
+			left: 20%
+	div.login_btn_style2
+		+bg(-168px * 2, 0)
+		top: 58%
+		left: 25%
+		@media screen and (min-width: 1024px) and (max-width: 1280px)
+			left: 20%
+

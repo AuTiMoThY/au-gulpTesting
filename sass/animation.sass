@@ -1,0 +1,17 @@
+/*----------------------------------------*/
+/*          animation
+/*----------------------------------------*/
+@import compass
+@import _animate.sass
+
+.fadeInLeft
+	+animate(fadeInLeft, 2s, 0.5s)
+.fadeInRight
+	+animate(fadeInRight, 2s, 1s)
+
+.tada
+	&:hover
+		+animate(tada, 2s)
+
+.title_fadeIn
+	+animate(fadeIn, 1.5s, 1s)

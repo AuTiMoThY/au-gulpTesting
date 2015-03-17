@@ -1,0 +1,28 @@
+/******************************************/
+/*          AuTiMoThY
+/******************************************/
+/*		
+/*----------------------------------------*/
+@import _variable
+@import _mixin
+@import _font.scss
+@import compass
+
+// @import _animate.sass
+.hide_text
+	+hide_text
+.line1
+	display: block
+	height: 1px
+	+bgImg('patterns.png')
+	+bg(0, -108px)
+	position: relative
+	// bottom: -99.9%
+.temporary
+	display: block
+	margin: 0 auto
+.required:before
+	content: "*"
+	display: inline-block
+
+

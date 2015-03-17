@@ -1,0 +1,130 @@
+/*------------------------------------------------------------------------*\
+		>>	header layout-hd
+\*------------------------------------------------------------------------*/
+header {
+	.wrapper {
+		height: 68px;
+	}
+	&.layout-hd {
+		@include wh(100%, 70px);
+		@include bg('header_bg.png', 50%, 50%);
+		@extend %fixed;
+		z-index: 4;
+		top: 3px;
+		&:before {
+			@include psudoClass;
+			@include wh(100%, 2px);
+			background-color: #c6cfd5;
+		}
+	}
+}
+
+/*------------------------------------------------------------------------*\
+		>>>	header    logo
+\*------------------------------------------------------------------------*/
+#logo {
+	@include wh(326px + 35px, 100%);
+	@include bg(#21445c);
+	padding-right: 35px;
+	position: absolute;
+	a {
+		@include wh(logo, png);
+		@include bg('logo.png');
+		@include VerticalAlign;
+	}
+}
+
+/*------------------------------------------------------------------------*\
+		>>>	header    nav hd
+\*------------------------------------------------------------------------*/
+nav.hd {
+	@include wh(100%);
+	padding-left: 326px + 35px;
+	ul {
+		@include wh(100%);
+	}
+	li {
+		@include wh(16%, 80%);
+		border-right: 1px dotted #fff;
+		@include VerticalAlign;
+	}
+	a {
+		@include wh(100%, 80%);
+		display: block;
+		@include VerticalAlign;
+		padding-top: 5px;
+		@include transition(all 0.3s ease-out);
+		/*font*/
+		color: #fff;
+		font-size: $fz-L;
+		&:hover>span, span.active {
+			color: #21445c;
+		}
+	}
+	span {
+		&[class*="_txt"] {
+			@include wh(100%, 50%);
+			display: block;
+			@include transition(all 0.3s ease-out);
+			/*font*/
+			color: #fff;
+			text-align: center;
+		}
+		&.tw_txt {
+			// padding-top: 6px;
+			/*font*/
+			font-weight: bolder;
+			letter-spacing: 2px;
+		}
+		&.en_txt {
+			padding-top: 2px;
+			/*font*/
+			font-size: $fz-SS;
+			font-family: $ff-Verdana;
+		}
+	}
+}
+
+
+
+
+
+
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+		>>	footer layout-ft
+\*------------------------------------------------------------------------*/
+$footer-height: 25px;
+footer {
+	line-height: $footer-height;
+	&.layout-ft {
+		@include wh(100%, $footer-height);
+		@include bg(#14242e);
+		position: relative;
+		// top: $header_h;
+		@include box-shadow(inset 0 2px 8px 2px rgba(0, 0, 0, .5));
+	}
+	.container {
+		color: #fff;
+		&.L {
+			float: left;
+		}
+		&.R {
+			float: right;
+			/*font*/
+			font-size: $fz-S;
+			font-family: $ff-Verdana;
+		}
+		a {
+			@include transition(all 0.3s ease-out);
+			/*font*/
+			color: #fff;
+			font-size: $fz-S;
+			letter-spacing: 2px;
+			&:hover {
+				color: #deb408;
+			}
+		}
+	}
+}

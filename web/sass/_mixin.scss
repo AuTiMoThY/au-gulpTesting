@@ -1,0 +1,130 @@
+//------------------------------------*\
+//		AuTiMoThY
+//		V 3.6
+//------------------------------------*/
+@mixin wh($width:100%, $height:$width) {
+	@if type-of($width) == number or $width == "auto" {
+		width: $width;
+		height: $height;
+	} @else {
+		$name: $width;
+		$file: $height;
+		width: image-width("../images/#{$name}.#{$file}");
+		height: image-height("../images/#{$name}.#{$file}");
+	}
+}
+@mixin bg($name, $bgpx:0, $bgpy:0, $repeat:no-repeat) {
+	$name: unquote($name);
+	$repeat: unquote($repeat);
+	@if type-of($name) == number {
+		//  background-position
+		$bgpxx: $name;
+		$bgpy: $bgpx;
+		background-position: $bgpxx $bgpy;
+	} @else if type-of($name) == color {
+		//  background-color
+		background-color: $name;
+	} @else if $name == "fixed" or $name == "scroll" {
+		$atta: $name;
+		background-attachment: $atta;
+	} @else {
+		background: image-url(#{$name}) $bgpx $bgpy $repeat;
+	}
+}
+@mixin hide_txt() {
+	text-indent: 110%;
+	white-space: nowrap;
+	overflow: hidden;
+	display: block;
+}
+@mixin hover($top:1px, $left:1px) {
+	@include translate($top, $left);
+}
+@mixin align-C() {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+@mixin VerticalAlign() {
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+@mixin psudoClass() {
+	content: '';
+	display: block;
+}
+@mixin ellipsis() {
+	overflow:hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+@mixin circle($width, $height:$width) {
+	width: $width;
+	height: $height;
+	@include border-radius($width / 2);
+}
+@mixin picImg() {
+	height: auto;
+	display: block;
+	margin: 0 auto;
+}
+@mixin ib {
+  display: inline-block;
+  vertical-align: top;
+  padding:0;
+  background-image:none
+}
+@mixin atRoot() {
+	@at-root { @content; }/*at-root*/
+}
+@mixin ul() {
+	margin-bottom: 1.25em;
+	list-style-position: outside;
+	font-size: 1em;
+	line-height: 1.6;
+}
+
+
+
+
+
+@mixin container() {
+	position: relative;
+	top: 200px;
+	padding: 80px;
+	margin-bottom: 200px;
+}
+@mixin input_common() {
+	@include wh(240px, 30px);
+	line-height: 30px;
+	border: 1px solid #b09e70;
+}
+@mixin label_common() {
+	@include wh(70px, 30px);
+	display: inline-block;
+	@include member_txt1;
+	text-align: right;
+	margin-right: 10px;
+}
+
+
+
+
+@mixin respond-to($foot) {
+  @if $foot == paper_foot_04 {
+    @media only screen and (max-width: $paper_foot_04_w) { @content; }
+  }
+  @else if $foot == paper_foot_03 {
+    @media only screen and (max-width: $paper_foot_03_w) { @content; }
+  }
+  @else if $foot == paper_foot_02 {
+    @media only screen and (max-width: $paper_foot_02_w) { @content; }
+  }
+}
+
+

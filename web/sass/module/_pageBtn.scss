@@ -1,0 +1,62 @@
+/*------------------------------------*\
+		pagesBtn
+\*------------------------------------*/
+#pagesBtn {
+	height: 70px;
+	margin: 30px auto 0px;
+	text-align: center;
+	display: table;
+	ul {
+		float: right;
+	}
+	li {
+		width: 30px;
+		height: 30px;
+		background: #fff;
+		display: block;
+		border: 1px solid $normal_color;
+		margin-right: 5px;
+		text-align: center;
+		line-height: 30px;
+		&.active {
+			background: $normal_color2;
+			&>a {
+				color: #fff;
+			}
+		}
+		&:hover {
+			background: $normal_color2;
+		}
+	}
+	.page_select {
+		width: auto;
+		border: 1px solid $normal_color;
+		&:hover {
+			background-color: $normal_color2;
+		}
+		select {
+			height: 25px;
+			width: auto;
+			background-color: #fff;
+			border: 0;
+			cursor: pointer;
+			line-height: 30px;
+			font-weight: normal;
+			&:focus {
+				border-color: $normal_color2;
+			}
+		}
+	}
+	a {
+		display: block;
+		color: #000;
+		font-size: 15px;
+		font-family: $normal_font;
+		line-height: 30px;
+		&:hover {
+			color: #fff;
+		}
+	}
+}
+
+

@@ -1,0 +1,395 @@
+@charset "UTF-8";
+
+#leftAside, #leftAsideDontScroll {
+	@include wh(274px, auto);
+	float: left;
+	position: fixed;
+	top: 290px;
+	.aside_hd {
+		@include wh(100%, 77px);
+		@include bgImg('pageTitles.png');
+		@include box-shadow(#333 0px 0px 5px);
+		@include border-top-radius($borderRadius);
+	}
+	@at-root {
+	/*----------------------------------------*\
+		>>> page_aside aside_hd
+	\*----------------------------------------*/
+		@each $page, $x, $y in (about, 0, 0),
+							   (news1, 0, -97px),
+							   (news2, 0, -194px),
+							   (story, -294px, 0px),
+							   (info, -294px, -97px),
+							   (workshop, -294px, -194px),
+							   (links, -588px, 0px),
+							   (faq, -588px, -97px),
+							   (member, -588px, -194px) {
+					&.#{$page}_aside {
+						.aside_hd {
+							@include bg(#{$x}, #{$y});
+						}
+					}
+		}
+	}//at-root > page_aside aside_hd
+	.aside_bd {
+		@include wh(100%, auto);
+		background-color: $normal_color;
+		padding: 15px 30px;
+	}
+	.aside_logo {
+		@include wh-bgImg(logo1, png);
+		@include bgImg('logo1.png');
+		margin: 0 auto 15px;
+	}
+	.aside_nav {
+		li {
+			@include wh(100%, 40px);
+			border-bottom: 1px dotted #fff;
+			float: none;
+			position: relative;
+			&:first-of-type {
+				border-top: 1px dotted #fff;
+			}
+			&:before {
+				@include psudoClass;
+				@include wh(24px);
+				position: absolute;
+				@include bgImg('icons.png');
+				@include bg(-151px, 0);
+				top: 7px;
+				left: 20px;
+				opacity: 0;
+
+				@include transition(all 0.3s ease-out);
+			}
+			&:hover, &.active {
+				&:before {
+					opacity: 1;
+				}
+				&>a {
+					@include text-shadow(#ed754a 1px 1px 0px);
+					letter-spacing: 2px;
+				}
+			}
+		}
+		a[class*="nav_item"] {
+			@include wh(100%, 100%);
+			background: none;
+			display: block;
+			position: relative;
+			/*font*/
+			color: #8e4429;
+			font: normal 19px/40px $normal_font;
+			text-align: center;
+			letter-spacing: 1px;
+		}
+	}
+	.aside_ft {
+		@include wh(100%, 30px + 8px);
+		@include bgImg('texture.png');
+		@include border-bottom-radius($borderRadius);
+		&:before {
+			@include psudoClass;
+			@include wh(100%, 8px);
+			background-color: #ef9094;
+		}
+	}
+}
+/*----------------------------------------*\
+	讓側邊欄不固定位置
+\*----------------------------------------*/
+#leftAsideDontScroll {
+	.faq_page &, .workshop_cnt_page &, .member_page & {
+		position: static;
+	}
+}
+
+
+
+
+/*----------------------------------------*\
+	>> page_aside story_aside links_aside
+\*----------------------------------------*/
+#leftAside.story_aside, #leftAside.links_aside {
+	li {
+		&:before {
+			left: 0px;
+		}
+		&:hover, &.active {
+			&>a.aside_nav_item2 {
+				letter-spacing: 0px;
+			}
+		}
+	}
+	a[class*="nav_item"] {
+		padding-left: 25px;
+		text-align: left;
+	}
+	.aside_nav_item2.aside_nav_item2 {
+		font-size: 18px;
+		letter-spacing: 0;
+	}
+}
+
+
+/*----------------------------------------*\
+	>> page_aside info_aside
+\*----------------------------------------*/
+#leftAside.info_aside {
+	li {
+		height: auto;
+	}
+	ul.subNav {
+		@include wh(100%, 80px);
+		padding: 10px 0 0 30px;
+		margin-bottom: 10px;
+	}
+	li.area_list {
+		@include wh(75px, auto);
+		float: left;
+		border: 0;
+		&:before {
+			background-image: none;
+		}
+		&:hover, &.active {
+			&:before {
+				background-image: none;
+			}
+			&>a {
+				@include text-shadow(none);
+				letter-spacing: 0;
+				&:before {
+					@include psudoClass;
+					@include wh(14px);
+					@include bgImg('icons.png');
+					@include bg(-241px, 0);
+					position: absolute;
+					top: 12px;
+					left: 5px;
+				}
+			}
+		}
+		&:first-of-type {
+			border-right: 1px solid #fff;
+			border-bottom: 1px solid #fff;
+		}
+		&:nth-of-type(2) {
+			border-bottom: 1px solid #fff;
+		}
+		&:nth-of-type(3) {
+			border-right: 1px solid #fff;
+		}
+		a {
+			@include wh(100%);
+			display: block;
+			position: relative;
+			/*font*/
+			color: #4d6951;
+			font: 15px/35px $normal_font;
+			text-align: center;
+		}
+	}
+	a[class*="aside_nav_item"] {
+		border-bottom: 1px dotted #fff;
+		padding-left: 50px;
+		text-align: left;
+	}
+}
+
+
+
+
+
+/*----------------------------------------*\
+	>> page_aside workshop_aside
+\*----------------------------------------*/
+#leftAsideDontScroll {
+	color: #8e4429;
+	font: 15px/19px $normal_font;
+	letter-spacing: 1px;
+	.red {
+		margin-bottom: 10px;
+	}
+	ul {
+		width: 100%;
+	}
+	li {
+		width: 100%;
+		margin-bottom: 10px;
+		float: none;
+		position: relative;
+	}
+	form {
+		position: relative;
+	}
+	label {
+		margin-bottom: 5px;
+		display: block;
+		/*font*/
+		color: #8e4429;
+		font: 15px/19px $normal_font;
+		letter-spacing: 1px;
+	}
+	input {
+		@include wh(100%, 22px);
+		/*font*/
+		color: #8e4429;
+		font: 15px/19px $normal_font;
+		letter-spacing: 1px;
+		&.birthday_year {
+			width: 65px;
+		}
+		&[type=radio] {
+			width: 20px;
+			display: none;
+			margin-right: 5px;
+			&+label {
+				display: inline-block;
+				margin-right: 10px;
+				&:before {
+					content: '';
+					display: inline-block;
+					@include wh(20px);
+					background-color: #fff;
+					border: 1px solid #d5cdc1;
+					@include border-radius(0);
+					position: relative;
+					top: 4px;
+					margin-right: 5px;
+					line-height: 15px; 
+				}
+			}
+			&:checked {
+				&+label:before {
+					content: "\2713";  
+					top: -2px;
+					text-shadow: 1px 1px 1px rgba(0, 0, 0, .5);  
+					color: $normal_color;  
+					font-size: 15px;  
+					text-align: center;  
+				}
+			}
+		}
+	}
+	select {
+		/*font*/
+		color: #8e4429;
+		font: 15px/19px $normal_font;
+		letter-spacing: 1px;
+		&.style2 {
+			width: 40px;
+		}
+		&.join_number {
+			width: 60px;
+		}
+	}
+	textarea {
+		width: 100%;
+		resize : none;
+	}
+	.submit {
+		@include wh(107px, 35px);
+		@include bgImg('icons.png');
+		@include bg(-275px, 0);
+		position: absolute;
+		bottom: 5px;
+		left: 100px;
+		&:hover {
+			bottom: 4px;
+			left: 101px;
+		}
+		input.q {
+			@include wh(100%);
+			border: none;
+			outline:none;
+			background-color: transparent;
+			&:checked {
+				border: none;
+			}
+		}
+	}
+}
+
+
+/*----------------------------------------*\
+	>> page_aside links_page links3 links_aside
+\*----------------------------------------*/
+.links3 #leftAside.links_aside li {
+	height: auto;
+}
+.links3 {
+	.subNav {
+		@include wh(100%, auto);
+		padding: 10px 0 0 30px;
+		margin-bottom: 10px;
+		li {
+			@include wh(100%, auto);
+			float: none;
+			border-top: none !important;
+			border-bottom: none !important;
+			&:before {
+				background-image: none !important;
+			}
+			&:hover, &.active {
+				&:before {
+					background-image: none !important;
+				}
+				&>a[href*="links3"] {
+					@include text-shadow(none !important);
+					letter-spacing: 0;
+					&:before {
+						@include psudoClass;
+						@include wh(14px);
+						@include bgImg('icons.png');
+						@include bg(-241px, 0);
+						position: absolute;
+						top: 12px;
+						left: 5px;
+					}
+				}
+			}
+			a {
+				@include wh(100%);
+				display: block;
+				position: relative;
+				padding-left: 25px;
+				/*font*/
+				color: #4d6951;
+				font: 15px/35px $normal_font;
+				text-align: left;
+			}
+		}
+	}
+}
+
+
+
+
+/*----------------------------------------*\
+	>> page_aside faq_aside
+\*----------------------------------------*/
+.faq_aside {
+	.aside_nav {
+		margin-top: 30px;
+	}
+	.faq_intro {
+
+		background-color: #ef9094;
+		/*font*/
+		color: #fff;
+		font-size: 12px;
+		line-height: 19px;
+		letter-spacing: 1px;
+		&:before {
+			@include psudoClass;
+			@include wh(100%, 1px);
+			background-color: #ef9094;
+			position: relative;
+			top: -5px;
+		}
+		p {
+			padding: 10px 20px;
+		}
+	}
+}
+

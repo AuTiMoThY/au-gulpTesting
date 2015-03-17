@@ -1,0 +1,29 @@
+#bodyBg {
+	width: 100%;
+	min-height: 100%;
+	position: relative;
+	// z-index: 990;
+	.BG {
+		@include wh(100%);
+		min-height: 100%;
+		position: absolute;
+	}
+	a {
+		@include wh(100%);
+		display: block;
+	}
+}
+#bodyBgCtrl {
+	position: absolute;
+	left: 0;
+	bottom: 245px;
+	z-index: 999;
+	li {
+		@include wh(22px);
+		background: transparent url('../css/themes/default/bullets.png') no-repeat;
+		cursor: pointer;
+		&.active {
+			@include bg(0, -21px);
+		}
+	}
+}

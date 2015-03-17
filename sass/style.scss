@@ -1,0 +1,163 @@
+@charset "UTF-8";
+
+/******************************************/
+/*          1111shop
+/*			by AuTiMoThY
+/******************************************/
+/*
+* TOC
+*
+*/
+
+@import "_variable";
+@import "_mixin";
+@import "_font.scss";
+@import "compass";
+@import "ceaser-easing";
+
+// @include font-face("expressway", font-files("expressway rg.ttf", "expressway rg.woff"));
+
+// @import _animate.sass
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+		
+\*------------------------------------------------------------------------*/
+.hide_txt {
+    @include hide_txt;
+}
+
+.wrapper {
+    @include wh($cnt_width, 100%);
+    margin: 0 auto;
+    position: relative;
+}
+.well {
+	width: $cnt_width;
+	margin: auto;
+	position: relative;
+}
+
+html, body {
+    min-height: 100%;
+}
+
+body {
+    @include bg('bg1_mini.jpg', 50%, 50%);
+    @include background-size(cover);
+    // @include bg(scroll);
+	font-family: $normal_font;
+}
+
+[class*="row_"] {
+    width: 100%;
+}
+
+[class*="col_"] {
+    width: 49%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.pic {
+    img {
+        @include picImg;
+    }
+}
+
+.swing {
+    -webkit-transform-origin: 50% 80%;
+    -ms-transform-origin: 50% 80%;
+    transform-origin: 50% 80%;
+}
+
+.temporary {
+    display: block;
+    margin: 0 auto;
+}
+
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+	>	materialBtn
+\*------------------------------------------------------------------------*/
+@import "_materialBtn";
+
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+	>	footer
+\*------------------------------------------------------------------------*/
+footer {
+	@include wh(100%, 35px);
+	@include bg(rgba(215, 0, 15, 0.8));
+	position: fixed;
+	bottom: 0;
+	p {
+		line-height: 35px;
+		text-align: center;
+	}
+}
+
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+	>	nav aside
+\*------------------------------------------------------------------------*/
+.nav_aside {
+    width: 12%;
+    @include bg(#02489e);
+    ul {
+        @include wh();
+    }
+    li {
+        @include wh(100%, 24%);
+        float: none;
+    }
+    a {
+        @include wh;
+        display: block;
+    }
+    .block {
+        @include wh;
+        // display: inline-block;
+        padding-top: 30px;
+
+    }
+    .icon {
+        @include wh(115px, 105px);
+        @include bg('icon.png');
+        display: block;
+        margin: 0 auto;
+    }
+    @each $item, $x, $y in (item1, -82px, -51px),
+                           (item2, -82px, -270px),
+                           (item3, -82px, -508px),
+                           (item4, -82px, -740px) {
+        .#{$item} .icon {
+            @include bg($x, $y);
+        }
+    }
+    .title { 
+    	width: 100%;
+    	display: block;
+    	color: #fff;
+    	font-size: $fz-L; 
+        line-height: 1.2;
+        text-align: center;
+    }
+    .btn-default {
+    	&:hover {
+    		@include bg(#051e9b);
+    	}
+    }
+}
+
+
+header {
+    position: absolute;
+    top: 10%;
+}
+
+
+

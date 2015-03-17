@@ -1,0 +1,37 @@
+.assess {
+	input {
+		&[type=checkbox] {
+			width: 16px;
+			display: none;
+			margin-right: 5px;
+			&+label {
+				display: inline-block;
+				margin-right: 10px;
+				line-height: 16px;
+				&:before {
+					content: '';
+					display: inline-block;
+					@include circle(16px);
+					background-color: #fff;
+					border: 1px solid #d5cdc1;
+					position: relative;
+					top: 4px;
+					margin-right: 5px;
+					line-height: 16px; 
+				}
+			}
+			&:checked {
+				&+label:before {
+					content: "\2713";  
+					top: 4px;
+					text-shadow: 1px 1px 1px rgba(0, 0, 0, .5);  
+					color: #ff1400;  
+					font-size: 17px;  
+					text-align: center;  
+				}
+			}
+		}
+	}
+}
+
+
